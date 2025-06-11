@@ -1,0 +1,104 @@
+/* src/styles.css */
+
+:root {
+    --primary-red: #c8102e;
+    --dark-charcoal: #1c1c1c;
+    --steel-gray: #a9a9a9;
+    --light-silver: #f5f5f5;
+    --white: #ffffff;
+    --accent-blue: #0057b8;
+    --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    font-family: var(--font);
+    background-color: var(--light-silver);
+    color: var(--dark-charcoal);
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--primary-red);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  
+  .header {
+    background: var(--primary-red);
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--dark-charcoal);
+    padding: 14px 24px;
+  }
+  
+  .navbar a {
+    color: var(--white);
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    color: var(--primary-red);
+  }
+  
+  .card {
+    background: var(--white);
+    border: 1px solid var(--steel-gray);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  .button {
+    background: var(--primary-red);
+    color: var(--white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .button:hover {
+    background: #a00c24;
+  }
+  
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid var(--steel-gray);
+    border-radius: 4px;
+    font-family: var(--font);
+  }
+  
+  footer {
+    background: var(--dark-charcoal);
+    color: var(--white);
+    text-align: center;
+    padding: 16px;
+    margin-top: 40px;
+  }
+  
