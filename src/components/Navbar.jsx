@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import './navbar.css';
+import './Navbar.css';
 
 export default function Navbar() {
   const { user, role, logout } = useAuth();
