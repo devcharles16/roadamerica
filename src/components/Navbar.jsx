@@ -1,34 +1,40 @@
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import './navbar.css';
 
 export default function Navbar() {
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
+  const { user, role, logout } = useAuth();
+  const location = useLocation();
 
-  const handleLogout = () => {
-    logout();
-    navigate('/');
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (err) {
+      console.error('Logout error:', err);
+    }
   };
 
   return (
     <nav className="navbar">
-      <div className="text-xl font-bold" style={{ color: 'white' }}>RA Transport</div>
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/blog">Blog</Link>
-        <Link to="/faqs">FAQs</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/quote">Get a Quote</Link>
+      <Link to="/" className="navbar-logo">
+        Road America Auto Transport
+      </Link>
+      <div className="navbar-links">
+        <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
+        <Link to="/services" className={location.pathname === '/services' ? 'active' : ''}>Services</Link>
+        <Link to="/quote" className={location.pathname === '/quote' ? 'active' : ''}>Get a Quote</Link>
+        <Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''}>Blog</Link>
+        <Link to="/faqs" className={location.pathname === '/faqs' ? 'active' : ''}>FAQs</Link>
+        <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact Us</Link>
+        {user && <Link to="/dashboard" className={location.pathname === '/dashboard' ? 'active' : ''}>Dashboard</Link>}
+        {role === 'admin' && <Link to="/admin" className={location.pathname === '/admin' ? 'active' : ''}>Admin</Link>}
         {user ? (
-          <>
-            <Link to="/dashboard">Dashboard</Link>
-            <button onClick={handleLogout} style={{ marginLeft: '10px', background: 'transparent', border: 'none', color: 'white', cursor: 'pointer' }}>Logout</button>
-          </>
+          <button onClick={handleLogout} className="logout-button">Logout</button>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link to="/login" className={location.pathname === '/login' ? 'active' : ''}>Login</Link>
+            <Link to="/register" className={location.pathname === '/register' ? 'active' : ''}>Register</Link>
           </>
         )}
       </div>

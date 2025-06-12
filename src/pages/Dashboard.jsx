@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+// src/pages/Dashboard.jsx
+import React, { useEffect, useState } from 'react';
 import { db } from '../firebase';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { useAuth } from '../context/AuthContext';
+import './styles/dashboard.css';
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -9,33 +11,70 @@ export default function Dashboard() {
 
   useEffect(() => {
     const fetchQuotes = async () => {
-      const q = query(collection(db, 'quotes'), where('userId', '==', user.uid));
-      const snapshot = await getDocs(q);
-      const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setQuotes(data);
+      const querySnapshot = await getDocs(collection(db, 'quotes'));
+      const quotesData = querySnapshot.docs
+        .map(doc => ({ id: doc.id, ...doc.data() }))
+        .filter(q => q.email === user.email);
+      setQuotes(quotesData);
     };
 
-    if (user?.uid) {
-      fetchQuotes();
-    }
+    if (user?.email) fetchQuotes();
   }, [user]);
 
+  const getStatusProgress = (status) => {
+    switch (status) {
+      case 'Confirmed': return 50;
+      case 'Completed': return 100;
+      default: return 25;
+    }
+  };
+
+  const getStatusBarColor = (status) => {
+    switch (status) {
+      case 'Confirmed': return '#2a9d8f';
+      case 'Completed': return '#264653';
+      default: return '#e9c46a';
+    }
+  };
+
   return (
-    <div className="container">
-      <div className="header">Vehicle Dashboard</div>
-      {quotes.length === 0 ? (
-        <p>No quotes found.</p>
-      ) : (
-        quotes.map((quote) => (
-          <div className="card" key={quote.id}>
-            <p><strong>From:</strong> {quote.pickupZip}</p>
-            <p><strong>To:</strong> {quote.deliveryZip}</p>
-            <p><strong>Vehicle:</strong> {quote.vehicleType}</p>
-            <p><strong>Date:</strong> {quote.pickupDate}</p>
-            <p><strong>Status:</strong> {quote.status}</p>
+    <div className="dashboard-container">
+      <h2 className="dashboard-title">My Quotes</h2>
+      <div className="dashboard-quote-list">
+        {quotes.map((quote, index) => (
+          <div key={index} className="dashboard-quote-card">
+            <div style={{
+              height: '24px',
+              width: '100%',
+              backgroundColor: '#ddd',
+              borderRadius: '4px',
+              marginBottom: '10px',
+              overflow: 'hidden',
+              position: 'relative'
+            }}>
+              <div style={{
+                width: `${getStatusProgress(quote.status)}%`,
+                height: '100%',
+                backgroundColor: getStatusBarColor(quote.status),
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#fff',
+                fontWeight: 'bold',
+                fontSize: '0.9rem',
+                transition: 'width 0.3s ease'
+              }}>
+                {quote.status || 'Pending'}
+              </div>
+            </div>
+            <p><strong>Vehicle:</strong> {quote.year} {quote.make} {quote.model} ({quote.vehicleType})</p>
+            <p><strong>From:</strong> {quote.pickupLocation}</p>
+            <p><strong>To:</strong> {quote.dropoffLocation}</p>
+            <p><strong>Drivability:</strong> {quote.drivability}</p>
+            <p><strong>Trailer Type:</strong> {quote.trailerType}</p>
           </div>
-        ))
-      )}
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,102 @@
+/* admindashboard.css - Styling for admin dashboard */
+
+.admin-dashboard-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+  }
+  
+  .admin-dashboard-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #222;
+  }
+  
+  .admin-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+  
+  .admin-controls input,
+  .admin-controls select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 250px;
+  }
+  
+  .admin-quote-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .admin-quote-card {
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fdfdfd;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .admin-quote-card p {
+    margin: 6px 0;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .admin-quote-card strong {
+    font-weight: 600;
+    color: #000;
+  }
+  
+  .delete-button {
+    background-color: #e63946;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .delete-button:hover {
+    background-color: #ba1b2a;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+  }
+  
+  .pagination button {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination button:hover {
+    background-color: #ddd;
+  }
+  
+  .pagination .active {
+    background-color: #004aad;
+    color: white;
+    border-color: #004aad;
+  }
+  

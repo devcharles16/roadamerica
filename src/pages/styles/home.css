@@ -1,0 +1,103 @@
+/* styles/home.css */
+
+.home-container {
+    padding: 2rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(to right, #002f4b, #005c97);
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .quote-button {
+    background-color: #e63946;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .quote-button:hover {
+    background-color: #d62828;
+  }
+  
+  .why-choose-us, .how-it-works, .testimonials, .cta-section {
+    margin-bottom: 3rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  .why-choose-us h2, .how-it-works h2, .testimonials h2, .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #002f4b;
+    text-align: center;
+  }
+  
+  .why-choose-us ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #444;
+  }
+  
+  .why-choose-us li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+  
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .step {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .testimonials blockquote {
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem auto;
+    border-left: 4px solid #e63946;
+    max-width: 600px;
+    font-style: italic;
+  }
+  
+  .cta-section {
+    text-align: center;
+  }
+  
+  .cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
