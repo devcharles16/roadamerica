@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
@@ -6,6 +6,7 @@ import './Navbar.css';
 export default function Navbar() {
   const { user, role, logout } = useAuth();
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -15,12 +16,19 @@ export default function Navbar() {
     }
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
         Road America Auto Transport
       </Link>
-      <div className="navbar-links">
+      <button className="menu-toggle" onClick={toggleMenu}>
+        ☰
+      </button>
+      <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
         <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
         <Link to="/services" className={location.pathname === '/services' ? 'active' : ''}>Services</Link>
         <Link to="/quote" className={location.pathname === '/quote' ? 'active' : ''}>Get a Quote</Link>

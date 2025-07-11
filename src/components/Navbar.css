@@ -1,52 +1,85 @@
-/* navbar.css */
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1e293b; /* slate-800 */
-    padding: 1rem 2rem;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #002f4b;
+  color: white;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.menu-toggle {
+  display: block;
+  font-size: 1.5rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.navbar-links {
+  display: none;
+  flex-direction: column;
+  background-color: #1e293b;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-links.active {
+  display: flex;
+}
+
+.navbar-links a,
+.navbar-links button {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
   }
-  
-  .navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #facc15; /* yellow-400 */
-    text-decoration: none;
+
+  .navbar {
+    flex-direction: row;
   }
-  
+
   .navbar-links {
-    display: flex;
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background-color: transparent;
+    padding: 0;
     gap: 1.5rem;
   }
-  
-  .navbar-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+
+  .navbar-links a,
+  .navbar-links button {
+    padding: 0;
   }
-  
-  .navbar-links a:hover {
-    color: #facc15;
+
+  .navbar-links a.active {
+    border-bottom: 2px solid #ffd700;
   }
-  
-  .navbar-button {
-    background-color: #facc15;
-    color: #1e293b;
-    padding: 0.5rem 1.25rem;
-    border-radius: 999px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .navbar-button:hover {
-    background-color: #eab308;
-  }
-  
+}
