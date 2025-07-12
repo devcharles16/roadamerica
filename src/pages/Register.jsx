@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { Link } from 'react-router-dom';
+
+
+import './styles/login-register.css';
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -30,6 +34,13 @@ export default function Register() {
           <input type="password" className="input" value={password} onChange={e => setPassword(e.target.value)} />
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <button className="button" type="submit">Register</button>
+          <p style={{ marginTop: '1rem', textAlign: 'center' }}>
+  Already have an account?{' '}
+  <Link to="/login" style={{ color: '#005c97', textDecoration: 'underline' }}>
+    Click here to log in
+  </Link>
+</p>
+
         </form>
       </div>
     </div>
