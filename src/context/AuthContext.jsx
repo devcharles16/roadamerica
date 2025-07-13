@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { 
+import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -40,10 +40,12 @@ export function AuthProvider({ children }) {
     return () => unsubscribe();
   }, []);
 
-  const register = async (email, password) => {
+  const register = async (email, password, firstName, lastName) => {
     const result = await createUserWithEmailAndPassword(auth, email, password);
     await setDoc(doc(db, 'users', result.user.uid), {
       email,
+      firstName,
+      lastName,
       role: 'user' // default role
     });
     return result;

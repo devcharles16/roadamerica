@@ -37,6 +37,10 @@ export default function Navbar() {
         <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact Us</Link>
         {user && <Link to="/dashboard" className={location.pathname === '/dashboard' ? 'active' : ''}>Dashboard</Link>}
         {role === 'admin' && <Link to="/admin" className={location.pathname === '/admin' ? 'active' : ''}>Admin</Link>}
+        {user && (
+  <li className="nav-user">Welcome, {user.displayName || user.email}</li>
+)}
+
         {user ? (
           <button onClick={handleLogout} className="logout-button">Logout</button>
         ) : (

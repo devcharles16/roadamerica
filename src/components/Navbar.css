@@ -54,6 +54,13 @@
   cursor: pointer;
   padding: 0.5rem 0;
 }
+.nav-user {
+  color: #fff;
+  font-weight: 500;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+}
 
 /* Desktop Styles */
 @media (min-width: 769px) {

@@ -1,102 +1,89 @@
-/* admindashboard.css - Styling for admin dashboard */
 
-.admin-dashboard-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    font-family: 'Poppins', sans-serif;
-    background-color: #fff;
-  }
-  
-  .admin-dashboard-title {
-    font-size: 2rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #222;
-  }
-  
-  .admin-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    margin-bottom: 25px;
-  }
-  
-  .admin-controls input,
-  .admin-controls select {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    min-width: 250px;
-  }
-  
-  .admin-quote-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .admin-quote-card {
-    border: 1px solid #bbb;
-    border-radius: 8px;
-    padding: 20px;
-    background-color: #fdfdfd;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  .admin-quote-card p {
-    margin: 6px 0;
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  .admin-quote-card strong {
-    font-weight: 600;
-    color: #000;
-  }
-  
-  .delete-button {
-    background-color: #e63946;
-    color: #fff;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .delete-button:hover {
-    background-color: #ba1b2a;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    gap: 10px;
-  }
-  
-  .pagination button {
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 6px 12px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .pagination button:hover {
-    background-color: #ddd;
-  }
-  
-  .pagination .active {
-    background-color: #004aad;
-    color: white;
-    border-color: #004aad;
-  }
-  
+.admin-dashboard {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.admin-dashboard h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-bar input,
+.filter-bar select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1 1 45%;
+}
+
+.quote-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quote-card {
+  background-color: #f9f9f9;
+  border-left: 5px solid #005c97;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quote-card select {
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.delete-btn {
+  align-self: flex-start;
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.delete-btn:hover {
+  background-color: #b71c1c;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #005c97;
+  color: white;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

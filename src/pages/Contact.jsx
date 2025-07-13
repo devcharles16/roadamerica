@@ -23,7 +23,7 @@ export default function Contact() {
 
       <div className="contact-details">
         <p>Email: support@roadamericaautotransport.com</p>
-        <p>Phone: (954) 995-5250</p>
+        <p>Phone: (754) 600-5772</p>
         <p>Business Hours: Mon–Fri, 9am–6pm EST</p>
       </div>
     </div>
